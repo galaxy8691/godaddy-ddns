@@ -472,11 +472,11 @@ func getPubIP() (string, error) {
 	var ipbody GetIPBody
 	var response *http.Response
 
-	response, err := http.Get("https://api.ipify.org/?format=json")
+	response, err := http.Get("https://ip.useragentinfo.com/json")
 	if err != nil {
 		response, err = http.Get("https://ipinfo.io/json")
 		if err != nil {
-			response, err = http.Get("https://ip.useragentinfo.com/json")
+			response, err = http.Get("https://api.ipify.org/?format=json")
 			if err != nil {
 				return "", nil
 			}
