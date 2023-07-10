@@ -476,7 +476,10 @@ func getPubIP() (string, error) {
 	if err != nil {
 		response, err = http.Get("https://ipinfo.io/json")
 		if err != nil {
-			return "", nil
+			response, err = http.Get("https://ip.useragentinfo.com/json")
+			if err != nil {
+				return "", nil
+			}
 		}
 	}
 
